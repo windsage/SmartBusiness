@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.tairui.smartcommunity.tenant.ui.MainActivity">
+
+    <org.apache.cordova.engine.SystemWebView
+        android:id="@+id/cordovaWebView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radioButton_home"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="true"
+            android:drawableTop="@drawable/navigation_home"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:text="首页"
+            android:textColor="@drawable/text_color"/>
+
+        <RadioButton
+            android:id="@+id/radioButton_order"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="false"
+            android:drawableTop="@drawable/navigation_order"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:text="订单"
+            android:textColor="@drawable/text_color"/>
+
+        <RadioButton
+            android:id="@+id/radioButton_commodity"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="false"
+            android:drawableTop="@drawable/navigation_commodity"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:text="商品"
+            android:textColor="@drawable/text_color"/>
+
+        <RadioButton
+            android:id="@+id/radioButton_quit"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="false"
+            android:drawableTop="@drawable/navigation_quit"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:text="退出"
+            android:textColor="@drawable/text_color"/>
+    </LinearLayout>
+</LinearLayout>
