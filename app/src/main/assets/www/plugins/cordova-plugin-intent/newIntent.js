@@ -15,7 +15,7 @@ cordova.define("org.apache.cordova.intent",
                 null//要传递的参数，json格式
                 );
             },
-            startLogin: function(){
+            startLogin: function(content){
                 exec(
                 function(message){//成功回调function
                     console.log(message);
@@ -25,7 +25,7 @@ cordova.define("org.apache.cordova.intent",
                 },
                 "PluginIntent",//feature name
                 "startLogin",//action
-                null//要传递的参数，json格式
+                [content]//要传递的参数，json格式
                 );
             },
              goHome: function(){
@@ -66,20 +66,7 @@ cordova.define("org.apache.cordova.intent",
                    "goCommodity",//action
                    null//要传递的参数，json格式
                    );
-               },
-               quit: function(){
-                  exec(
-                  function(message){//成功回调function
-                      console.log(message);
-                  },
-                  function(message){//失败回调function
-                      console.log(message);
-                  },
-                  "PluginIntent",//feature name
-                  "quit",//action
-                  null//要传递的参数，json格式
-                  );
-              }
+               }
 
         }
 });

@@ -29,7 +29,8 @@ public class PluginIntent extends CordovaPlugin {
             goBack();
             return true;
         } else if ("startLogin".equals(action)) {
-            startLogin();
+            boolean isPwd = args.getBoolean(0);
+            startLoginWithPwd(isPwd);
             return true;
         } else if ("goHome".equals(action)) {
             goHome();
@@ -39,9 +40,6 @@ public class PluginIntent extends CordovaPlugin {
             return true;
         } else if ("goCommodity".equals(action)) {
             goCommodity();
-            return true;
-        }else if ("quit".equals(action)){
-            quit();
             return true;
         }
         return super.execute(action, args, callbackContext);
@@ -58,7 +56,13 @@ public class PluginIntent extends CordovaPlugin {
     /**
      * 调用登录界面
      */
-    private void startLogin() {
+    private void startLoginWithPwd(boolean isPwd) {
+        if (!isPwd) {
+            SharedPreferences sp = cordova.getActivity().getSharedPreferences("user", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sp.edit();
+            editor.putString("password", "");
+            editor.apply();
+        }
         Intent intent = new Intent(cordova.getActivity(), LoginActivity.class);
         intent.putExtra("auto", false);
         cordova.getActivity().startActivity(intent);
@@ -112,18 +116,4 @@ public class PluginIntent extends CordovaPlugin {
         });
     }
 
-
-    /**
-     * 调用退出
-     */
-    private void quit() {
-        SharedPreferences sp = cordova.getActivity().getSharedPreferences("user", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sp.edit();
-        editor.putString("password", "");
-        editor.apply();
-        Intent intent = new Intent(cordova.getActivity(), LoginActivity.class);
-        intent.putExtra("auto", false);
-        cordova.getActivity().startActivity(intent);
-        cordova.getActivity().finish();
-    }
 }

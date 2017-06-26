@@ -17,8 +17,8 @@ android {
         applicationId "com.tairui.smartcommunity.tenant"
         minSdkVersion 14
         targetSdkVersion 21
-        versionCode 1
-        versionName "1.0.0.1"
+        versionCode 2
+        versionName "1.0.0.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         ndk {
             //选择要添加的对应cpu类型的.so库。
