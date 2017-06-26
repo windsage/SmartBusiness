@@ -71,7 +71,7 @@ public class MainActivity extends CordovaActivity {
                 orderBtn.setChecked(false);
                 commodityBtn.setChecked(false);
                 quitBtn.setChecked(false);
-                launchUrl = Config.BASE_URL + "index.do";
+                launchUrl = Config.BASE_URL + "index.do?phoneos=0";
                 loadUrl(launchUrl);
             }
         });
@@ -83,7 +83,7 @@ public class MainActivity extends CordovaActivity {
                 orderBtn.setChecked(true);
                 commodityBtn.setChecked(false);
                 quitBtn.setChecked(false);
-                launchUrl = Config.BASE_URL + "orderinfo/index.do";
+                launchUrl = Config.BASE_URL + "orderinfo/index.do?phoneos=0";
                 loadUrl(launchUrl);
             }
         });
@@ -95,7 +95,7 @@ public class MainActivity extends CordovaActivity {
                 orderBtn.setChecked(false);
                 commodityBtn.setChecked(true);
                 quitBtn.setChecked(false);
-                launchUrl = Config.BASE_URL + "goods/index.do";
+                launchUrl = Config.BASE_URL + "goods/index.do?phoneos=0";
                 loadUrl(launchUrl);
             }
         });

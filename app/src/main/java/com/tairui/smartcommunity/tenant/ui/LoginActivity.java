@@ -96,7 +96,7 @@ public class LoginActivity extends AppCompatActivity implements SoftKeyBoardStat
             public void call(Void aVoid) {
                 //跳转重置的网页
                 Intent intent = new Intent(LoginActivity.this, WebActivity.class);
-                intent.putExtra("path", Config.BASE_URL + "business/forget.do");
+                intent.putExtra("path", Config.BASE_URL + "business/forget.do?phoneos=0");
                 startActivity(intent);
             }
         });
@@ -123,7 +123,7 @@ public class LoginActivity extends AppCompatActivity implements SoftKeyBoardStat
             Toast.makeText(LoginActivity.this, "手机号码不合法", Toast.LENGTH_SHORT).show();
             return;
         }
-        ApiService.getService().login(username, Utils.Encrypt(password))
+        ApiService.getService().login(username, Utils.Encrypt(password), 0)
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

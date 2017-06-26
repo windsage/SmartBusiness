@@ -15,7 +15,7 @@ public interface ApiInterface {
 
     @POST("app/loginsubmit.do")
     @FormUrlEncoded
-    Observable<HttpResult> login(@Field("businessphone") String userPhone, @Field("password") String password);
+    Observable<HttpResult> login(@Field("businessphone") String userPhone, @Field("password") String password, @Field("phoneos") int os);
 
     @POST("app/update.do")
     @FormUrlEncoded
