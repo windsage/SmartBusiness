@@ -17,8 +17,8 @@ android {
         applicationId "com.tairui.smartcommunity.tenant"
         minSdkVersion 14
         targetSdkVersion 21
-        versionCode 2
-        versionName "1.0.0.2"
+        versionCode 3
+        versionName "1.0.0.3"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         ndk {
             //选择要添加的对应cpu类型的.so库。
@@ -67,4 +67,6 @@ dependencies {
     compile 'cn.jiguang.sdk:jpush:3.0.6'
     compile 'cn.jiguang.sdk:jcore:1.1.3'
     compile project(':CordovaLib')
+    //Badger
+    compile "me.leolin:ShortcutBadger:1.1.18@aar"
 }

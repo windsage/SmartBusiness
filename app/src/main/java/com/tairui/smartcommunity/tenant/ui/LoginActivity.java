@@ -54,6 +54,8 @@ public class LoginActivity extends AppCompatActivity implements SoftKeyBoardStat
     private boolean eyeOpen = false;
     private boolean autoLogin = true;
 
+    private String receiverLayoutName = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +63,7 @@ public class LoginActivity extends AppCompatActivity implements SoftKeyBoardStat
         StatusBarUtil.setColor(this, ContextCompat.getColor(this, R.color.white), 40);
         ButterKnife.bind(this);
         autoLogin = getIntent().getBooleanExtra("auto", true);
+        receiverLayoutName = getIntent().getStringExtra("layout_name");
         screenHeight = getWindowManager().getDefaultDisplay().getHeight();
         initViews();
     }
@@ -155,6 +158,7 @@ public class LoginActivity extends AppCompatActivity implements SoftKeyBoardStat
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 intent.putExtra("username", username);
                                 intent.putExtra("path", path);
+                                intent.putExtra("layout_name", receiverLayoutName);
                                 startActivity(intent);
                                 finish();
                             }

@@ -46,12 +46,15 @@ public class MainActivity extends CordovaActivity {
     private RadioButton commodityBtn;
     private RadioButton quitBtn;
 
+    private String layoutName = "";
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         StatusBarUtil.setColor(this, ContextCompat.getColor(this, android.R.color.black), 0);
         String username = getIntent().getStringExtra("username");
+        layoutName = getIntent().getStringExtra("layout_name");
         JPushInterface.setAlias(this, username, new TagAliasCallback() {
             @Override
             public void gotResult(int i, String s, Set<String> set) {
@@ -117,10 +120,26 @@ public class MainActivity extends CordovaActivity {
                 finish();
             }
         });
-
-
         loadUrl(launchUrl);
         checkUpdate();
+
+        if (layoutName != null) {
+            if (layoutName.equals("home")) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        homeBtn.performClick();
+                    }
+                });
+            } else if (layoutName.equals("order")) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        orderBtn.performClick();
+                    }
+                });
+            }
+        }
     }
 
     public void reload(String url) {
